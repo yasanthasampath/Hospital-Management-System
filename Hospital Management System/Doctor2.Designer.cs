@@ -146,7 +146,7 @@
             // 
             // txtNic
             // 
-            this.txtNic.Location = new System.Drawing.Point(169, 164);
+            this.txtNic.Location = new System.Drawing.Point(169, 170);
             this.txtNic.Name = "txtNic";
             this.txtNic.Size = new System.Drawing.Size(110, 21);
             this.txtNic.TabIndex = 37;
@@ -154,7 +154,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 170);
+            this.label9.Location = new System.Drawing.Point(38, 173);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 15);
             this.label9.TabIndex = 36;
@@ -177,7 +177,7 @@
             // 
             this.lblAge.AutoSize = true;
             this.lblAge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblAge.Location = new System.Drawing.Point(125, 138);
+            this.lblAge.Location = new System.Drawing.Point(167, 138);
             this.lblAge.Name = "lblAge";
             this.lblAge.Size = new System.Drawing.Size(119, 15);
             this.lblAge.TabIndex = 26;
@@ -188,7 +188,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(169, 238);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.Size = new System.Drawing.Size(146, 21);
             this.dateTimePicker1.TabIndex = 25;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged_1);
             // 
@@ -196,7 +196,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label15.Location = new System.Drawing.Point(39, 138);
+            this.label15.Location = new System.Drawing.Point(41, 138);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(28, 15);
             this.label15.TabIndex = 24;
@@ -223,7 +223,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label13.Location = new System.Drawing.Point(39, 315);
+            this.label13.Location = new System.Drawing.Point(38, 312);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 15);
             this.label13.TabIndex = 21;
@@ -233,7 +233,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label12.Location = new System.Drawing.Point(39, 277);
+            this.label12.Location = new System.Drawing.Point(38, 277);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 15);
             this.label12.TabIndex = 20;
@@ -243,7 +243,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label11.Location = new System.Drawing.Point(38, 238);
+            this.label11.Location = new System.Drawing.Point(38, 243);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 15);
             this.label11.TabIndex = 19;
@@ -266,7 +266,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label10.Location = new System.Drawing.Point(39, 205);
+            this.label10.Location = new System.Drawing.Point(38, 208);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 15);
             this.label10.TabIndex = 15;
@@ -275,7 +275,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(248, 104);
+            this.radioButton2.Location = new System.Drawing.Point(239, 100);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(67, 19);
             this.radioButton2.TabIndex = 14;
@@ -288,7 +288,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(169, 106);
+            this.radioButton1.Location = new System.Drawing.Point(170, 100);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(53, 19);
             this.radioButton1.TabIndex = 13;
@@ -299,7 +299,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(169, 312);
+            this.textBox7.Location = new System.Drawing.Point(170, 309);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(110, 21);
             this.textBox7.TabIndex = 11;
@@ -326,7 +326,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(169, 202);
+            this.textBox4.Location = new System.Drawing.Point(169, 205);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(110, 21);
             this.textBox4.TabIndex = 7;
@@ -349,7 +349,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label8.Location = new System.Drawing.Point(38, 106);
+            this.label8.Location = new System.Drawing.Point(41, 104);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(28, 15);
             this.label8.TabIndex = 2;
@@ -359,7 +359,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label7.Location = new System.Drawing.Point(38, 70);
+            this.label7.Location = new System.Drawing.Point(39, 66);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 1;
@@ -369,7 +369,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label6.Location = new System.Drawing.Point(38, 29);
+            this.label6.Location = new System.Drawing.Point(38, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 0;
@@ -576,7 +576,7 @@
             // 
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(191, 59);
+            this.textBox5.Location = new System.Drawing.Point(191, 56);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(246, 22);
             this.textBox5.TabIndex = 5;
@@ -588,9 +588,9 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(17, 59);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(140, 16);
+            this.label18.Size = new System.Drawing.Size(109, 16);
             this.label18.TabIndex = 4;
-            this.label18.Text = "Search by ID or Name";
+            this.label18.Text = "Search by Name";
             // 
             // toolStrip1
             // 
