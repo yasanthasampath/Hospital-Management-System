@@ -146,6 +146,12 @@ namespace Hospital_Management_System
            BillForm lab = new BillForm();
             lab.Show();
         }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+            Email em = new Email();
+            em.Show();
+        }
     }
 }
 

@@ -50,6 +50,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.bill = new System.Windows.Forms.Button();
+            this.btnEmail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -279,6 +280,16 @@
             this.bill.UseVisualStyleBackColor = true;
             this.bill.Click += new System.EventHandler(this.button4_Click_2);
             // 
+            // btnEmail
+            // 
+            this.btnEmail.Location = new System.Drawing.Point(538, 383);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(96, 32);
+            this.btnEmail.TabIndex = 31;
+            this.btnEmail.Text = "Email Form";
+            this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +298,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(849, 447);
+            this.Controls.Add(this.btnEmail);
             this.Controls.Add(this.bill);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
@@ -343,5 +355,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button bill;
+        private System.Windows.Forms.Button btnEmail;
     }
 }
