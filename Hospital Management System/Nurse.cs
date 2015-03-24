@@ -39,30 +39,35 @@ namespace Hospital_Management_System
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            HospitalService.HospitalServiceClient client = new HospitalService.HospitalServiceClient();
+            HospitalService.Nurseclass nurse = null;
             try
             {
-                Nurseclass nur = new Nurseclass();
-                nur.Fname = textBox1.Text;
-                nur.Lname = textBox2.Text;
+                nurse = new HospitalService.Nurseclass();
+              //  Nurseclass nur = new Nurseclass();
+                nurse.Fname = textBox1.Text;
+                nurse.Lname = textBox2.Text;
 
                 if (radioButton1.Checked == true)
                 {
-                    nur.Gender = Convert.ToString(radioButton1.Tag);
+                    nurse.Gender = Convert.ToString(radioButton1.Tag);
                 }
 
                 else
                 {
-                    nur.Gender = Convert.ToString(radioButton2.Tag);
+                    nurse.Gender = Convert.ToString(radioButton2.Tag);
                 }
 
-                nur.NurseId1 = textBox3.Text;
-                nur.Salary = textBox4.Text;
-                nur.Dob = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
-                nur.Qualif = textBox6.Text;
-                nur.Shift = textBox7.Text;
+                nurse.NurseId1 = textBox3.Text;
+                nurse.Salary = textBox4.Text;
+                nurse.Dob = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
+                nurse.Qualif = textBox6.Text;
+                nurse.Shift = textBox7.Text;
 
-                MessageBox.Show("Data is Saved", "Save");
-                nur.addNurse();     //call the addNurse method to save the data
+              //  MessageBox.Show("Data is Saved", "Save");
+               // nur.addNurse();     //call the addNurse method to save the data
+                client.AddNurse(nurse);
+
             }
 
             catch(Exception ex) 
