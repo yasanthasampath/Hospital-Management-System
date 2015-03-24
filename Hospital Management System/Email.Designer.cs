@@ -153,6 +153,7 @@
             this.Controls.Add(this.txtSub1);
             this.Name = "Email";
             this.Text = "Email";
+            this.Load += new System.EventHandler(this.Email_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
