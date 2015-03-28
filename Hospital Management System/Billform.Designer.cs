@@ -179,9 +179,9 @@
             this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(145, 203);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(59, 18);
+            this.label17.Size = new System.Drawing.Size(17, 18);
             this.label17.TabIndex = 18;
-            this.label17.Text = "label17";
+            this.label17.Text = "0";
             // 
             // button1
             // 
@@ -201,9 +201,9 @@
             this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(145, 159);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 18);
+            this.label16.Size = new System.Drawing.Size(35, 18);
             this.label16.TabIndex = 16;
-            this.label16.Text = "label16";
+            this.label16.Text = "500";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label15

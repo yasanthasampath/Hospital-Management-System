@@ -12,6 +12,8 @@ namespace Hospital_Management_System
 {
     public partial class Nurse : Form
     {
+
+     
         public Nurse()
         {
             InitializeComponent();
@@ -39,11 +41,11 @@ namespace Hospital_Management_System
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            HospitalService.HospitalServiceClient client = new HospitalService.HospitalServiceClient();
-            HospitalService.Nurseclass nurse = null;
+            NurseService.NurseServiceClient client = new NurseService.NurseServiceClient();
+            NurseService.Nurseclass nurse = null;
             try
             {
-                nurse = new HospitalService.Nurseclass();
+                nurse = new NurseService.Nurseclass();
               //  Nurseclass nur = new Nurseclass();
                 nurse.Fname = textBox1.Text;
                 nurse.Lname = textBox2.Text;
@@ -135,20 +137,10 @@ namespace Hospital_Management_System
         {
             try
             {
-                MySqlConnection con = new MySqlConnection();
-                con.ConnectionString = "server=localhost;User Id=root;database=hospital_system";
+                NurseService.NurseServiceClient client = new NurseService.NurseServiceClient();
+                NurseService.Nurseclass nurse = new NurseService.Nurseclass();
 
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = "SELECT * FROM nurse WHERE F_Name LIKE '%" + textBox5.Text + "%' OR L_Name LIKE '%" + textBox5.Text + "%'";
-                cmd.Connection = con;
-
-                MySqlDataAdapter adp = new MySqlDataAdapter(); //MysqlDataAdapter is a helper class  which represent SqlCommand, SqlConnection
-                adp.SelectCommand = cmd;
-
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
+                dataGridView1.DataSource = client.getNurse(textBox5.Text,textBox5.Text);
             }
            
             catch(Exception ex)

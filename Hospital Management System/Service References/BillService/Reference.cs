@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hospital_Management_System.HospitalService {
+namespace Hospital_Management_System.BillService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,7 +17,7 @@ namespace Hospital_Management_System.HospitalService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PersonClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.HospitalService.Nurseclass))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.BillService.Nurseclass))]
     public partial class PersonClass : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -207,7 +207,7 @@ namespace Hospital_Management_System.HospitalService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Nurseclass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
-    public partial class Nurseclass : Hospital_Management_System.HospitalService.PersonClass {
+    public partial class Nurseclass : Hospital_Management_System.BillService.PersonClass {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NurseId1Field;
@@ -274,21 +274,194 @@ namespace Hospital_Management_System.HospitalService {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HospitalService.IHospitalService")]
-    public interface IHospitalService {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BillClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
+    [System.SerializableAttribute()]
+    public partial class BillClass : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHospitalService/AddNurse", ReplyAction="http://tempuri.org/IHospitalService/AddNurseResponse")]
-        void AddNurse(Hospital_Management_System.HospitalService.Nurseclass nurse);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BillTotField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ChannelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ChargeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DaysAdmitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DaysDischField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PatIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WardField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BillTot {
+            get {
+                return this.BillTotField;
+            }
+            set {
+                if ((this.BillTotField.Equals(value) != true)) {
+                    this.BillTotField = value;
+                    this.RaisePropertyChanged("BillTot");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Channel {
+            get {
+                return this.ChannelField;
+            }
+            set {
+                if ((this.ChannelField.Equals(value) != true)) {
+                    this.ChannelField = value;
+                    this.RaisePropertyChanged("Channel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Charge {
+            get {
+                return this.ChargeField;
+            }
+            set {
+                if ((this.ChargeField.Equals(value) != true)) {
+                    this.ChargeField = value;
+                    this.RaisePropertyChanged("Charge");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DaysAdmit {
+            get {
+                return this.DaysAdmitField;
+            }
+            set {
+                if ((this.DaysAdmitField.Equals(value) != true)) {
+                    this.DaysAdmitField = value;
+                    this.RaisePropertyChanged("DaysAdmit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DaysDisch {
+            get {
+                return this.DaysDischField;
+            }
+            set {
+                if ((this.DaysDischField.Equals(value) != true)) {
+                    this.DaysDischField = value;
+                    this.RaisePropertyChanged("DaysDisch");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PatID {
+            get {
+                return this.PatIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PatIDField, value) != true)) {
+                    this.PatIDField = value;
+                    this.RaisePropertyChanged("PatID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Rate {
+            get {
+                return this.RateField;
+            }
+            set {
+                if ((this.RateField.Equals(value) != true)) {
+                    this.RateField = value;
+                    this.RaisePropertyChanged("Rate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Room {
+            get {
+                return this.RoomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoomField, value) != true)) {
+                    this.RoomField = value;
+                    this.RaisePropertyChanged("Room");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ward {
+            get {
+                return this.WardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WardField, value) != true)) {
+                    this.WardField = value;
+                    this.RaisePropertyChanged("Ward");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IHospitalServiceChannel : Hospital_Management_System.HospitalService.IHospitalService, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BillService.IHospitalService")]
+    public interface IHospitalService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHospitalService/AddNurse", ReplyAction="http://tempuri.org/IHospitalService/AddNurseResponse")]
+        void AddNurse(Hospital_Management_System.BillService.Nurseclass nurse);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IHospitalServiceChannel : Hospital_Management_System.BillService.IHospitalService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class HospitalServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.HospitalService.IHospitalService>, Hospital_Management_System.HospitalService.IHospitalService {
+    public partial class HospitalServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.BillService.IHospitalService>, Hospital_Management_System.BillService.IHospitalService {
         
         public HospitalServiceClient() {
         }
@@ -309,8 +482,48 @@ namespace Hospital_Management_System.HospitalService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddNurse(Hospital_Management_System.HospitalService.Nurseclass nurse) {
+        public void AddNurse(Hospital_Management_System.BillService.Nurseclass nurse) {
             base.Channel.AddNurse(nurse);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BillService.IBillService")]
+    public interface IBillService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBillService/AddBill", ReplyAction="http://tempuri.org/IBillService/AddBillResponse")]
+        void AddBill(Hospital_Management_System.BillService.BillClass bill);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IBillServiceChannel : Hospital_Management_System.BillService.IBillService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class BillServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.BillService.IBillService>, Hospital_Management_System.BillService.IBillService {
+        
+        public BillServiceClient() {
+        }
+        
+        public BillServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public BillServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public BillServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public BillServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void AddBill(Hospital_Management_System.BillService.BillClass bill) {
+            base.Channel.AddBill(bill);
         }
     }
 }

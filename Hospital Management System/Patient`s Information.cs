@@ -80,9 +80,7 @@ namespace Hospital_Management_System
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            //to calculate age
-            //int age = DateTime.Today.Year - dateTimePicker2.Value.Year;     //Current year - birth year
-            //label13.Text = age.ToString();
+            
 
         }
 
@@ -163,7 +161,7 @@ namespace Hospital_Management_System
 
                     //------
                     MessageBox.Show("Details are saved", "Saved");
-                   // pc.addPatient();        //call the addPatient method to save the data
+                    pc.addPatient();        //call the addPatient method to save the data
                 }
                 
             }

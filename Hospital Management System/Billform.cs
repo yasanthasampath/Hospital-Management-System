@@ -12,20 +12,16 @@ namespace Hospital_Management_System
 {
     public partial class BillForm : Form
     {
-        BillClass bill1;
+     //   BillClass bill1;
 
-        public BillClass Bill1
-        {
-            get { return bill1; }
-            set { bill1 = value; }
-        }
+       
         public BillForm()
         {
             InitializeComponent();
-            bill1 = new BillClass();
-            label16.Text = Convert.ToString(bill1.Channel);
+          //  bill1 = new BillClass();
+         //   label16.Text = Convert.ToString(bill1.Channel);
 
-            
+            label16.Text = ""+500;
             
         }
 
@@ -37,8 +33,9 @@ namespace Hospital_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bill1.BillTot = bill1.Channel + bill1.calcCharge();
-            label18.Text = Convert.ToString(bill1.BillTot);
+    ///check        bill1.BillTot = bill1.Channel + bill1.calcCharge();
+   /// check        label18.Text = Convert.ToString(bill1.BillTot);
+   
 
         }
 
@@ -51,9 +48,11 @@ namespace Hospital_Management_System
                     if (dateTimePicker2.Value > DateTime.Today)
                     {
 
-                        bill1.DaysAdmit = dateTimePicker1.Value;
-                        bill1.DaysDisch = dateTimePicker2.Value;
-                        label17.Text = Convert.ToString(bill1.calcCharge());
+                ///check       bill1.DaysAdmit = dateTimePicker1.Value;
+                ///check        bill1.DaysDisch = dateTimePicker2.Value;
+                    ///check    label17.Text = Convert.ToString(bill1.calcCharge());
+                        int daysStay = (dateTimePicker1.Value).Date.Day - (dateTimePicker2.Value).Date.Day;
+                        label17.Text = Convert.ToString  (500 * daysStay);
                     }
 
                     else
@@ -91,29 +90,32 @@ namespace Hospital_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-             // insert put a validation ..
-             BillClass bill1 = new BillClass(); 
-                //doc.docId = textbox1.Text;
-                
+            BillService.BillServiceClient client = new BillService.BillServiceClient();
+            BillService.BillClass bill1 = new BillService.BillClass();
+            
+            try
+            {
+                //~~~~~~label18.text = label16.text+label17.text;
+                // BillClass bill1 = new BillClass(); 
 
-                //bill1.PatID = txtpaID1.Text;
-                bill1.DaysAdmit = Convert.ToDateTime( dateTimePicker1.Value.Date.ToString("yyyy-MM-dd"));
-                bill1.DaysDisch = Convert.ToDateTime( dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                bill1.DaysAdmit = Convert.ToDateTime(dateTimePicker1.Value.Date.ToString("yyyy-MM-dd"));
+                bill1.DaysDisch = Convert.ToDateTime(dateTimePicker2.Value.ToString("yyyy-MM-dd"));
                 bill1.Ward = comboBox1.Text;
 
                 bill1.Room = txtroo.Text;
 
-                bill1.BillTot =Convert.ToInt32( label18.Text);
-                bill1.Charge= Convert.ToInt32( label17.Text);
+                bill1.BillTot = Convert.ToInt32(label18.Text);
+                bill1.Charge = Convert.ToInt32(label17.Text);
 
 
-                
-                    
+                client.AddBill(bill1);
+               // MessageBox.Show("Data saved", "DONE");
+            }
 
-
-                bill1.addBill();
-                MessageBox.Show("Data saved", "DONE");
-                
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error, Please check" + ex.Message);
+            }
             
         }
 

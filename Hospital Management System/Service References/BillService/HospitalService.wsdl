@@ -13,10 +13,22 @@
   <wsdl:message name="IHospitalService_AddNurse_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddNurseResponse" />
   </wsdl:message>
+  <wsdl:message name="IBillService_AddBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBill" />
+  </wsdl:message>
+  <wsdl:message name="IBillService_AddBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBillResponse" />
+  </wsdl:message>
   <wsdl:portType name="IHospitalService">
     <wsdl:operation name="AddNurse">
       <wsdl:input wsaw:Action="http://tempuri.org/IHospitalService/AddNurse" message="tns:IHospitalService_AddNurse_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHospitalService/AddNurseResponse" message="tns:IHospitalService_AddNurse_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IBillService">
+    <wsdl:operation name="AddBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillService/AddBill" message="tns:IBillService_AddBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillService/AddBillResponse" message="tns:IBillService_AddBill_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHospitalService" type="tns:IHospitalService">
@@ -31,9 +43,24 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IBillService" type="tns:IBillService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBill">
+      <soap:operation soapAction="http://tempuri.org/IBillService/AddBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="HospitalService">
     <wsdl:port name="BasicHttpBinding_IHospitalService" binding="tns:BasicHttpBinding_IHospitalService">
-      <soap:address location="http://localhost:8080/HospitalService" />
+      <soap:address location="http://localhost:8080/NurseService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IBillService" binding="tns:BasicHttpBinding_IBillService">
+      <soap:address location="http://localhost:8080/BillService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -28,4 +28,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PersonClass" nillable="true" type="tns:PersonClass" />
+  <xs:complexType name="BillClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillTot" type="xs:int" />
+      <xs:element minOccurs="0" name="Channel" type="xs:int" />
+      <xs:element minOccurs="0" name="Charge" type="xs:int" />
+      <xs:element minOccurs="0" name="DaysAdmit" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DaysDisch" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rate" type="xs:int" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillClass" nillable="true" type="tns:BillClass" />
 </xs:schema>
