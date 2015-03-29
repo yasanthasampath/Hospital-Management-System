@@ -115,8 +115,13 @@ namespace Hospital_Management_System
 
         private void button1_Click_1(object sender, EventArgs e)    //This is to save the patient details
         {
+            PatientService.PatientServiceClient client = new PatientService.PatientServiceClient();
+            PatientService.PatientClass patient = null;
+            
             try
             {
+                
+
                 if (string.IsNullOrEmpty(this.textBox1.Text) ||
                    string.IsNullOrEmpty(this.textBox2.Text) ||
                     string.IsNullOrEmpty(this.textBox3.Text) ||
@@ -127,41 +132,45 @@ namespace Hospital_Management_System
                 }
                 else
                 {
-                    PatientClass pc = new PatientClass();
-                    pc.PatID = textBox1.Text;
-                    pc.Fname = textBox2.Text;
-                    pc.Lname = textBox3.Text;
-                    pc.Nic = textBox7.Text;
-                    pc.Dob = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-                    pc.Weight = textBox8.Text;
-                    pc.Address1 = textBox4.Text;
-                    pc.Address2 = textBox9.Text;
-                    pc.Country1 = comboBox1.Text;
-                    pc.State = comboBox4.Text;
+                    patient = new PatientService.PatientClass(); 
+                    //PatientClass pc = new PatientClass();
+                    patient.PatID = textBox1.Text;
+                    patient.Fname = textBox2.Text;
+                    patient.Lname = textBox3.Text;
+                    patient.Nic = textBox7.Text;
+                    patient.Dob = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                    patient.Weight = textBox8.Text;
+                    patient.Address1 = textBox4.Text;
+                    patient.Address2 = textBox9.Text;
+                    patient.Country1 = comboBox1.Text;
+                    patient.State = comboBox4.Text;
 
-                    //here match the remaining textboxes to the variables eg
-                    pc.DateAdmit = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-                    pc.DateDisch = dateTimePicker3.Value.ToString("yyyy-MM-dd");
-                    pc.Bgroup = comboBox2.Text;
-                    pc.Maritial = comboBox3.Text;
+                    
+                    patient.DateAdmit = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                    patient.DateDisch = dateTimePicker3.Value.ToString("yyyy-MM-dd");
+                    patient.Bgroup = comboBox2.Text;
+                    patient.Maritial = comboBox3.Text;
 
                     if (radioButton1.Checked == true)
                     {
 
-                        pc.Gender = Convert.ToString(radioButton1.Text);
+                        patient.Gender = Convert.ToString(radioButton1.Text);
                     }
                     else
                     {
-                        pc.Gender = Convert.ToString(radioButton2.Text);
+                        patient.Gender = Convert.ToString(radioButton2.Text);
                     }
-                    pc.Telnum = maskedTextBox4.Text;
-                    pc.Mobnum = maskedTextBox3.Text;
+                    patient.Telnum = maskedTextBox4.Text;
+                    patient.Mobnum = maskedTextBox3.Text;
 
                     
 
-                    //------
+                   
                     MessageBox.Show("Details are saved", "Saved");
-                    pc.addPatient();        //call the addPatient method to save the data
+                   // pc.addPatient();        //call the addPatient method to save the data
+
+                    client.AddPatient(patient);
+                    
                 }
                 
             }

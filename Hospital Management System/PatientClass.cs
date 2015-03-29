@@ -76,8 +76,7 @@ namespace Hospital_Management_System
         {
             //execute sql and add
             ConnectDb conPat = new ConnectDb();
-           //adding comment
-            //123223
+          
            conPat.openCon();    //call openCon method
             //we use this cmnd method and pass this insert statemtn as sql query
             conPat.cmnd("INSERT INTO patients(Pat_ID,F_Name,L_Name,Date_Adm,Date_Dis,NIC,Gender,DOB,Blood_Grp,Weight,Marital,Add1,Add2,Nationality,State,Tel_Num,Mob_Num) VALUES(@pi,@fn,@ln,@da,@dd,@nic,@gn,@db,@bg,@wei,@mar,@add1,@add2,@ctr,@stat,@tel,@mob)");
