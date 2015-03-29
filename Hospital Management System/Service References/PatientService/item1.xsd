@@ -59,4 +59,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PatientClass" nillable="true" type="tns:PatientClass" />
+  <xs:complexType name="DoctorClass">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersonClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Chnlfee" type="xs:int" />
+          <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Qualif" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Salary" type="xs:double" />
+          <xs:element minOccurs="0" name="Speclty" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DoctorClass" nillable="true" type="tns:DoctorClass" />
 </xs:schema>

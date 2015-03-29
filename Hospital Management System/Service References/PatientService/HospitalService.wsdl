@@ -32,6 +32,18 @@
   <wsdl:message name="IPatientService_AddPatient_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddPatientResponse" />
   </wsdl:message>
+  <wsdl:message name="IPatientService_getPatient_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPatient" />
+  </wsdl:message>
+  <wsdl:message name="IPatientService_getPatient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_AddDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IDoctorService_AddDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoctorResponse" />
+  </wsdl:message>
   <wsdl:portType name="INurseService">
     <wsdl:operation name="AddNurse">
       <wsdl:input wsaw:Action="http://tempuri.org/INurseService/AddNurse" message="tns:INurseService_AddNurse_InputMessage" />
@@ -52,6 +64,16 @@
     <wsdl:operation name="AddPatient">
       <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/AddPatient" message="tns:IPatientService_AddPatient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/AddPatientResponse" message="tns:IPatientService_AddPatient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPatientService/getPatient" message="tns:IPatientService_getPatient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPatientService/getPatientResponse" message="tns:IPatientService_getPatient_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDoctorService">
+    <wsdl:operation name="AddDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoctorService/AddDoctor" message="tns:IDoctorService_AddDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoctorService/AddDoctorResponse" message="tns:IDoctorService_AddDoctor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INurseService" type="tns:INurseService">
@@ -98,6 +120,27 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getPatient">
+      <soap:operation soapAction="http://tempuri.org/IPatientService/getPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDoctorService" type="tns:IDoctorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDoctor">
+      <soap:operation soapAction="http://tempuri.org/IDoctorService/AddDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="HospitalService">
     <wsdl:port name="BasicHttpBinding_INurseService" binding="tns:BasicHttpBinding_INurseService">
@@ -107,7 +150,10 @@
       <soap:address location="http://localhost:8080/BillService" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IPatientService" binding="tns:BasicHttpBinding_IPatientService">
-      <soap:address location="http://localhost:8080/PstientService" />
+      <soap:address location="http://localhost:8080/PatientService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDoctorService" binding="tns:BasicHttpBinding_IDoctorService">
+      <soap:address location="http://localhost:8080/DoctorService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

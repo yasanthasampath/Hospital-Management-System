@@ -18,6 +18,7 @@ namespace Hospital_Management_System.PatientService {
     [System.Runtime.Serialization.DataContractAttribute(Name="PersonClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.PatientService.PatientClass))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.PatientService.DoctorClass))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.PatientService.Nurseclass))]
     public partial class PersonClass : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -334,6 +335,93 @@ namespace Hospital_Management_System.PatientService {
                 if ((object.ReferenceEquals(this.WeightField, value) != true)) {
                     this.WeightField = value;
                     this.RaisePropertyChanged("Weight");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
+    [System.SerializableAttribute()]
+    public partial class DoctorClass : Hospital_Management_System.PatientService.PersonClass {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ChnlfeeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QualifField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SalaryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SpecltyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Chnlfee {
+            get {
+                return this.ChnlfeeField;
+            }
+            set {
+                if ((this.ChnlfeeField.Equals(value) != true)) {
+                    this.ChnlfeeField = value;
+                    this.RaisePropertyChanged("Chnlfee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocId {
+            get {
+                return this.DocIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocIdField, value) != true)) {
+                    this.DocIdField = value;
+                    this.RaisePropertyChanged("DocId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Qualif {
+            get {
+                return this.QualifField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QualifField, value) != true)) {
+                    this.QualifField = value;
+                    this.RaisePropertyChanged("Qualif");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Salary {
+            get {
+                return this.SalaryField;
+            }
+            set {
+                if ((this.SalaryField.Equals(value) != true)) {
+                    this.SalaryField = value;
+                    this.RaisePropertyChanged("Salary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Speclty {
+            get {
+                return this.SpecltyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SpecltyField, value) != true)) {
+                    this.SpecltyField = value;
+                    this.RaisePropertyChanged("Speclty");
                 }
             }
         }
@@ -676,6 +764,9 @@ namespace Hospital_Management_System.PatientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/AddPatient", ReplyAction="http://tempuri.org/IPatientService/AddPatientResponse")]
         void AddPatient(Hospital_Management_System.PatientService.PatientClass patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/getPatient", ReplyAction="http://tempuri.org/IPatientService/getPatientResponse")]
+        System.Data.DataTable getPatient(string fname, string lname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -707,6 +798,50 @@ namespace Hospital_Management_System.PatientService {
         
         public void AddPatient(Hospital_Management_System.PatientService.PatientClass patient) {
             base.Channel.AddPatient(patient);
+        }
+        
+        public System.Data.DataTable getPatient(string fname, string lname) {
+            return base.Channel.getPatient(fname, lname);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PatientService.IDoctorService")]
+    public interface IDoctorService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/AddDoctor", ReplyAction="http://tempuri.org/IDoctorService/AddDoctorResponse")]
+        void AddDoctor(Hospital_Management_System.PatientService.DoctorClass doctor);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IDoctorServiceChannel : Hospital_Management_System.PatientService.IDoctorService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DoctorServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.PatientService.IDoctorService>, Hospital_Management_System.PatientService.IDoctorService {
+        
+        public DoctorServiceClient() {
+        }
+        
+        public DoctorServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public DoctorServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public DoctorServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public DoctorServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void AddDoctor(Hospital_Management_System.PatientService.DoctorClass doctor) {
+            base.Channel.AddDoctor(doctor);
         }
     }
 }

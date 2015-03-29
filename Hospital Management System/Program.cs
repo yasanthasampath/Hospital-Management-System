@@ -15,7 +15,7 @@ namespace Hospital_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Doctor2());//Login
+            Application.Run(new frmPatient());//Login
         }
     }
 }

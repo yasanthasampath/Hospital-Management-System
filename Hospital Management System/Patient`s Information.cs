@@ -88,22 +88,11 @@ namespace Hospital_Management_System
         {
             try
             {
+                PatientService.PatientServiceClient client = new PatientService.PatientServiceClient();
+                PatientService.PatientClass patient = new PatientService.PatientClass();
 
-                MySqlConnection con = new MySqlConnection();
-                con.ConnectionString = "server=localhost;User Id=root;database=hospital_system";
-
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = "SELECT * FROM patients WHERE F_Name LIKE '%" + textBox5.Text + "%' OR L_Name LIKE '%" + textBox5.Text + "%'";
-                cmd.Connection = con;
-
-                //Data adapter object
-                MySqlDataAdapter adp = new MySqlDataAdapter(); //MysqlDataAdapter is a helper class  which represent SqlCommand, SqlConnection
-                adp.SelectCommand = cmd;
-
-                DataTable dt = new DataTable();//getting the data
-                adp.Fill(dt);
-
-                dataGridView1.DataSource = dt;
+                dataGridView1.DataSource = client.getPatient(textBox5.Text, textBox5.Text);
+               
             }
             catch (Exception ex)
             {
