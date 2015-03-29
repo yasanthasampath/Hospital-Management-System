@@ -764,6 +764,9 @@ namespace Hospital_Management_System.DoctorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/AddPatient", ReplyAction="http://tempuri.org/IPatientService/AddPatientResponse")]
         void AddPatient(Hospital_Management_System.DoctorService.PatientClass patient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/getPatient", ReplyAction="http://tempuri.org/IPatientService/getPatientResponse")]
+        System.Data.DataTable getPatient(string fname, string lname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -796,6 +799,10 @@ namespace Hospital_Management_System.DoctorService {
         public void AddPatient(Hospital_Management_System.DoctorService.PatientClass patient) {
             base.Channel.AddPatient(patient);
         }
+        
+        public System.Data.DataTable getPatient(string fname, string lname) {
+            return base.Channel.getPatient(fname, lname);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -804,6 +811,9 @@ namespace Hospital_Management_System.DoctorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/AddDoctor", ReplyAction="http://tempuri.org/IDoctorService/AddDoctorResponse")]
         void AddDoctor(Hospital_Management_System.DoctorService.DoctorClass doctor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/getDoctor", ReplyAction="http://tempuri.org/IDoctorService/getDoctorResponse")]
+        System.Data.DataTable getDoctor(string fname, string lname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -835,6 +845,10 @@ namespace Hospital_Management_System.DoctorService {
         
         public void AddDoctor(Hospital_Management_System.DoctorService.DoctorClass doctor) {
             base.Channel.AddDoctor(doctor);
+        }
+        
+        public System.Data.DataTable getDoctor(string fname, string lname) {
+            return base.Channel.getDoctor(fname, lname);
         }
     }
 }

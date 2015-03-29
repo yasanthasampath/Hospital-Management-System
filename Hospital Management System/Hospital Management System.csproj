@@ -90,7 +90,6 @@
     <Compile Include="Nurse.Designer.cs">
       <DependentUpon>Nurse.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientClass.cs" />
     <Compile Include="Patient`s Information.cs">
       <SubType>Form</SubType>
     </Compile>

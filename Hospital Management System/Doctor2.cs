@@ -255,22 +255,25 @@ namespace Hospital_Management_System
         {
             try
             {
+                DoctorService.DoctorServiceClient client = new DoctorService.DoctorServiceClient();
+                DoctorService.DoctorClass doctor = new DoctorService.DoctorClass();
 
-                ConnectDb condb = new ConnectDb();
-                string qry = "SELECT *FROM doctor WHERE F_Name LIKE '%" + textBox5.Text + "%' OR L_Name LIKE '%" + textBox5.Text + "%'";
-              //  MySqlCommand cmd = new MySqlCommand("SELECT *FROM doctor WHERE F_Name LIKE '%" +textBox5.Text+ "%' OR L_Name LIKE '%" + textBox5.Text + "%'");
-                condb.cmnd(qry);
-                condb.command.Connection = condb.connDB;
+                dataGridView1.DataSource = client.getDoctor(textBox5.Text,textBox5.Text);
+               
+               // ConnectDb condb = new ConnectDb();
+               // string qry = "SELECT *FROM doctor WHERE F_Name LIKE '%" + textBox5.Text + "%' OR L_Name LIKE '%" + textBox5.Text + "%'";
+             
+               // condb.cmnd(qry);
+               // condb.command.Connection = condb.connDB;
 
-                //Data adapter object
-                //MySqlDataAdapter adp = new MySqlDataAdapter();
-                condb.setdAdapter(qry);
-               condb.dAdapter.SelectCommand = condb.command;
+               
+               // condb.setdAdapter(qry);
+               //condb.dAdapter.SelectCommand = condb.command;
 
-                DataTable dt = new DataTable();
-                condb.dAdapter.Fill(dt);
+               // DataTable dt = new DataTable();
+               // condb.dAdapter.Fill(dt);
 
-                dataGridView1.DataSource = dt;
+               // dataGridView1.DataSource = dt;
             }
             catch (Exception ex)
             {
