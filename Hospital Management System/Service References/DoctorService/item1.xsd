@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HospitalService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HospitalService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Nurseclass">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersonClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NurseId1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Qualif" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Salary" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Shift" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Nurseclass" nillable="true" type="tns:Nurseclass" />
+  <xs:complexType name="PersonClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Dob" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobnum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telnum" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonClass" nillable="true" type="tns:PersonClass" />
+  <xs:complexType name="BillClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillTot" type="xs:int" />
+      <xs:element minOccurs="0" name="Channel" type="xs:int" />
+      <xs:element minOccurs="0" name="Charge" type="xs:int" />
+      <xs:element minOccurs="0" name="DaysAdmit" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DaysDisch" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PatID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rate" type="xs:int" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillClass" nillable="true" type="tns:BillClass" />
+  <xs:complexType name="PatientClass">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersonClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Bgroup" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Country1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateAdmit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateDisch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Maritial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PatID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PatientClass" nillable="true" type="tns:PatientClass" />
+  <xs:complexType name="DoctorClass">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersonClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Chnlfee" type="xs:int" />
+          <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Qualif" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Salary" type="xs:double" />
+          <xs:element minOccurs="0" name="Speclty" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DoctorClass" nillable="true" type="tns:DoctorClass" />
+</xs:schema>

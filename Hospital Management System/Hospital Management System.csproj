@@ -112,6 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\DoctorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\NurseService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +187,19 @@
     <None Include="Service References\BillService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\DoctorService\HospitalService.wsdl" />
+    <None Include="Service References\DoctorService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DoctorService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\NurseService\HospitalService.wsdl" />
     <None Include="Service References\NurseService\item.xsd">
       <SubType>Designer</SubType>
@@ -220,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BillService\" />
+    <WCFMetadataStorage Include="Service References\DoctorService\" />
     <WCFMetadataStorage Include="Service References\NurseService\" />
     <WCFMetadataStorage Include="Service References\PatientService\" />
   </ItemGroup>
@@ -264,6 +283,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\PatientService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DoctorService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

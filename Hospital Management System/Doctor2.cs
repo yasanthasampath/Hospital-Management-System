@@ -283,30 +283,37 @@ namespace Hospital_Management_System
         {
             try
             {// insert put a validation ..
-                DoctorClass doc = new DoctorClass();
+                DoctorService.DoctorServiceClient client = new DoctorService.DoctorServiceClient();
+                DoctorService.DoctorClass doctor = null;
                 
-                doc.Fname = textBox1.Text;
-                doc.Lname = textBox2.Text;
+                //DoctorClass doc = new DoctorClass();
+
+                doctor = new DoctorService.DoctorClass();
+
+                doctor.Fname = textBox1.Text;
+                doctor.Lname = textBox2.Text;
 
                 if (radioButton1.Checked == true)
                 {
-                    doc.Gender = Convert.ToString(radioButton1.Tag);
+                    doctor.Gender = Convert.ToString(radioButton1.Tag);
                 }
                 else
                 {
-                    doc.Gender = Convert.ToString(radioButton2.Tag);
+                    doctor.Gender = Convert.ToString(radioButton2.Tag);
 
                 }
-                doc.Nic = txtNic.Text;
-                doc.Salary = Convert.ToDouble( textBox4.Text);
-                doc.Age =Convert.ToInt32( lblAge.Text);
-                doc.Dob = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
-                doc.Qualif = textBox6.Text;
-                doc.Speclty = textBox7.Text;
-                doc.Chnlfee = Convert.ToInt32( textBox9.Text);
+                doctor.Nic = txtNic.Text;
+                doctor.Salary = Convert.ToDouble( textBox4.Text);
+                doctor.Age =Convert.ToInt32( lblAge.Text);
+                doctor.Dob = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
+                doctor.Qualif = textBox6.Text;
+                doctor.Speclty = textBox7.Text;
+                doctor.Chnlfee = Convert.ToInt32( textBox9.Text);
                 
                 MessageBox.Show("Data saved", "DONE");
-                doc.addDoctor();    //call the addDoctor method to save the data
+                //doc.addDoctor();    //call the addDoctor method to save the data
+
+                client.AddDoctor(doctor);           
             }
             catch(Exception ex)
             {
