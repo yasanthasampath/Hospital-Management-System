@@ -100,6 +100,10 @@ namespace Hospital_Management_System
 
 
             }
+
+           
+
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)    //This is to save the patient details
@@ -117,7 +121,7 @@ namespace Hospital_Management_System
                     string.IsNullOrEmpty(this.textBox4.Text))
                     
                 {
-                    MessageBox.Show("Please make sure you filled all fields","error");
+                    MessageBox.Show("Please make sure you filled all fields", "error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -152,10 +156,10 @@ namespace Hospital_Management_System
                     patient.Telnum = maskedTextBox4.Text;
                     patient.Mobnum = maskedTextBox3.Text;
 
-                    
 
-                   
-                    MessageBox.Show("Details are saved", "Saved");
+
+
+                    MessageBox.Show("Patient Details are Saved Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                    // pc.addPatient();        //call the addPatient method to save the data
 
                     client.AddPatient(patient);
@@ -165,9 +169,11 @@ namespace Hospital_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception Error : "+ex.Message);
+                MessageBox.Show("An Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
             }
 
+            
             
         }
 

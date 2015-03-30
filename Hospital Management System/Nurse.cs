@@ -66,7 +66,7 @@ namespace Hospital_Management_System
                 nurse.Qualif = textBox6.Text;
                 nurse.Shift = textBox7.Text;
 
-              //  MessageBox.Show("Data is Saved", "Save");
+                MessageBox.Show("Nurse Details are Saved Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                // nur.addNurse();     //call the addNurse method to save the data
                 client.AddNurse(nurse);
 
@@ -74,9 +74,16 @@ namespace Hospital_Management_System
 
             catch(Exception ex) 
             {
-                MessageBox.Show("Error" + ex.Message);
+                MessageBox.Show("An Error in Process, Please Check again"+ex.Message,"Error Message",MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+
 
             }
+
+            //finally
+            //{
+            //    MessageBox.Show("End of Process,Thank You", "Process End", MessageBoxButtons.OK);
+            //}
 
         }
 
@@ -147,6 +154,8 @@ namespace Hospital_Management_System
             {
                 MessageBox.Show("System Error" +ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+
+            
 
         }
 

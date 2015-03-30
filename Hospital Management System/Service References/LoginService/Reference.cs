@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hospital_Management_System.DoctorService {
+namespace Hospital_Management_System.LoginService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,9 +17,9 @@ namespace Hospital_Management_System.DoctorService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PersonClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.DoctorService.PatientClass))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.DoctorService.DoctorClass))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.DoctorService.Nurseclass))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.LoginService.PatientClass))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.LoginService.DoctorClass))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Hospital_Management_System.LoginService.Nurseclass))]
     public partial class PersonClass : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -209,7 +209,7 @@ namespace Hospital_Management_System.DoctorService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PatientClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
-    public partial class PatientClass : Hospital_Management_System.DoctorService.PersonClass {
+    public partial class PatientClass : Hospital_Management_System.LoginService.PersonClass {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BgroupField;
@@ -344,7 +344,7 @@ namespace Hospital_Management_System.DoctorService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DoctorClass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
-    public partial class DoctorClass : Hospital_Management_System.DoctorService.PersonClass {
+    public partial class DoctorClass : Hospital_Management_System.LoginService.PersonClass {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ChnlfeeField;
@@ -447,7 +447,7 @@ namespace Hospital_Management_System.DoctorService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Nurseclass", Namespace="http://schemas.datacontract.org/2004/07/HospitalService")]
     [System.SerializableAttribute()]
-    public partial class Nurseclass : Hospital_Management_System.DoctorService.PersonClass {
+    public partial class Nurseclass : Hospital_Management_System.LoginService.PersonClass {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NurseId1Field;
@@ -688,23 +688,23 @@ namespace Hospital_Management_System.DoctorService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorService.INurseService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginService.INurseService")]
     public interface INurseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INurseService/AddNurse", ReplyAction="http://tempuri.org/INurseService/AddNurseResponse")]
-        void AddNurse(Hospital_Management_System.DoctorService.Nurseclass nurse);
+        void AddNurse(Hospital_Management_System.LoginService.Nurseclass nurse);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INurseService/getNurse", ReplyAction="http://tempuri.org/INurseService/getNurseResponse")]
         System.Data.DataTable getNurse(string fname, string lname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface INurseServiceChannel : Hospital_Management_System.DoctorService.INurseService, System.ServiceModel.IClientChannel {
+    public interface INurseServiceChannel : Hospital_Management_System.LoginService.INurseService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class NurseServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.DoctorService.INurseService>, Hospital_Management_System.DoctorService.INurseService {
+    public partial class NurseServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.LoginService.INurseService>, Hospital_Management_System.LoginService.INurseService {
         
         public NurseServiceClient() {
         }
@@ -725,7 +725,7 @@ namespace Hospital_Management_System.DoctorService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddNurse(Hospital_Management_System.DoctorService.Nurseclass nurse) {
+        public void AddNurse(Hospital_Management_System.LoginService.Nurseclass nurse) {
             base.Channel.AddNurse(nurse);
         }
         
@@ -735,20 +735,20 @@ namespace Hospital_Management_System.DoctorService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorService.IBillService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginService.IBillService")]
     public interface IBillService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBillService/AddBill", ReplyAction="http://tempuri.org/IBillService/AddBillResponse")]
-        void AddBill(Hospital_Management_System.DoctorService.BillClass bill);
+        void AddBill(Hospital_Management_System.LoginService.BillClass bill);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IBillServiceChannel : Hospital_Management_System.DoctorService.IBillService, System.ServiceModel.IClientChannel {
+    public interface IBillServiceChannel : Hospital_Management_System.LoginService.IBillService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BillServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.DoctorService.IBillService>, Hospital_Management_System.DoctorService.IBillService {
+    public partial class BillServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.LoginService.IBillService>, Hospital_Management_System.LoginService.IBillService {
         
         public BillServiceClient() {
         }
@@ -769,29 +769,29 @@ namespace Hospital_Management_System.DoctorService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddBill(Hospital_Management_System.DoctorService.BillClass bill) {
+        public void AddBill(Hospital_Management_System.LoginService.BillClass bill) {
             base.Channel.AddBill(bill);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorService.IPatientService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginService.IPatientService")]
     public interface IPatientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/AddPatient", ReplyAction="http://tempuri.org/IPatientService/AddPatientResponse")]
-        void AddPatient(Hospital_Management_System.DoctorService.PatientClass patient);
+        void AddPatient(Hospital_Management_System.LoginService.PatientClass patient);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPatientService/getPatient", ReplyAction="http://tempuri.org/IPatientService/getPatientResponse")]
         System.Data.DataTable getPatient(string fname, string lname);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPatientServiceChannel : Hospital_Management_System.DoctorService.IPatientService, System.ServiceModel.IClientChannel {
+    public interface IPatientServiceChannel : Hospital_Management_System.LoginService.IPatientService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PatientServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.DoctorService.IPatientService>, Hospital_Management_System.DoctorService.IPatientService {
+    public partial class PatientServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.LoginService.IPatientService>, Hospital_Management_System.LoginService.IPatientService {
         
         public PatientServiceClient() {
         }
@@ -812,7 +812,7 @@ namespace Hospital_Management_System.DoctorService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddPatient(Hospital_Management_System.DoctorService.PatientClass patient) {
+        public void AddPatient(Hospital_Management_System.LoginService.PatientClass patient) {
             base.Channel.AddPatient(patient);
         }
         
@@ -822,26 +822,26 @@ namespace Hospital_Management_System.DoctorService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorService.IDoctorService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginService.IDoctorService")]
     public interface IDoctorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/AddDoctor", ReplyAction="http://tempuri.org/IDoctorService/AddDoctorResponse")]
-        void AddDoctor(Hospital_Management_System.DoctorService.DoctorClass doctor);
+        void AddDoctor(Hospital_Management_System.LoginService.DoctorClass doctor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/getDoctor", ReplyAction="http://tempuri.org/IDoctorService/getDoctorResponse")]
         System.Data.DataTable getDoctor(string fname, string lname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/getDoctorPriceDetails", ReplyAction="http://tempuri.org/IDoctorService/getDoctorPriceDetailsResponse")]
-        Hospital_Management_System.DoctorService.DoctorClass getDoctorPriceDetails();
+        Hospital_Management_System.LoginService.DoctorClass getDoctorPriceDetails();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDoctorServiceChannel : Hospital_Management_System.DoctorService.IDoctorService, System.ServiceModel.IClientChannel {
+    public interface IDoctorServiceChannel : Hospital_Management_System.LoginService.IDoctorService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DoctorServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.DoctorService.IDoctorService>, Hospital_Management_System.DoctorService.IDoctorService {
+    public partial class DoctorServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.LoginService.IDoctorService>, Hospital_Management_System.LoginService.IDoctorService {
         
         public DoctorServiceClient() {
         }
@@ -862,7 +862,7 @@ namespace Hospital_Management_System.DoctorService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddDoctor(Hospital_Management_System.DoctorService.DoctorClass doctor) {
+        public void AddDoctor(Hospital_Management_System.LoginService.DoctorClass doctor) {
             base.Channel.AddDoctor(doctor);
         }
         
@@ -870,8 +870,48 @@ namespace Hospital_Management_System.DoctorService {
             return base.Channel.getDoctor(fname, lname);
         }
         
-        public Hospital_Management_System.DoctorService.DoctorClass getDoctorPriceDetails() {
+        public Hospital_Management_System.LoginService.DoctorClass getDoctorPriceDetails() {
             return base.Channel.getDoctorPriceDetails();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginService.ILoginService")]
+    public interface ILoginService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/login", ReplyAction="http://tempuri.org/ILoginService/loginResponse")]
+        bool login(string username, string password);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ILoginServiceChannel : Hospital_Management_System.LoginService.ILoginService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LoginServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.LoginService.ILoginService>, Hospital_Management_System.LoginService.ILoginService {
+        
+        public LoginServiceClient() {
+        }
+        
+        public LoginServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public LoginServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public LoginServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public LoginServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool login(string username, string password) {
+            return base.Channel.login(username, password);
         }
     }
 }

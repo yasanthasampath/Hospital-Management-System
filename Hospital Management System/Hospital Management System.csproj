@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\LoginService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\NurseService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +191,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DoctorService\HospitalService.wsdl" />
+    <None Include="Service References\DoctorService\Hospital_Management_System.DoctorService.DoctorClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\DoctorService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -196,6 +204,22 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DoctorService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\HospitalService.wsdl" />
+    <None Include="Service References\LoginService\Hospital_Management_System.LoginService.DoctorClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LoginService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LoginService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\NurseService\HospitalService.wsdl" />
@@ -237,6 +261,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BillService\" />
     <WCFMetadataStorage Include="Service References\DoctorService\" />
+    <WCFMetadataStorage Include="Service References\LoginService\" />
     <WCFMetadataStorage Include="Service References\NurseService\" />
     <WCFMetadataStorage Include="Service References\PatientService\" />
   </ItemGroup>
@@ -296,6 +321,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\DoctorService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LoginService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LoginService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LoginService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LoginService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

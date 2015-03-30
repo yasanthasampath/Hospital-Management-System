@@ -22,44 +22,61 @@ namespace Hospital_Management_System
 
         private void Doctor2_Load(object sender, EventArgs e)
         {
+            //DoctorService.DoctorServiceClient client = new DoctorService.DoctorServiceClient();
+            //DoctorService.DoctorClass doctor = new DoctorService.DoctorClass();
+
+           // dataGridView1.DataSource = client.getDoctorPriceDetails();
+            //this.comboBox1.DataSource = client.getDoctorPriceDetails();
+            //this.comboBox1.DisplayMember = "FULL";
+            //this.comboBox1.ValueMember = "doc_id";
+            //textBox10.Text = doctor.Speclty;
+            //textBox11.Text = doctor.Chnlfee.ToString();
+
+
+           // doctor = client.getDoctorPriceDetails();
+          //  comboBox1.DataSource = doctor.fullName;
+            //textBox10.Text = doctor.Speclty;
+            //textBox11.Text = doctor.Chnlfee.ToString();
+           
+
             //This is to display the doctor details onto the combobox and textboxes
-            ConnectDb dbcon = new ConnectDb();
-            try
-            {
+            //ConnectDb dbcon = new ConnectDb();
+            //try
+            //{
                
-                dbcon.openCon();
-                //join the first name and last name from doctor table then use it to display full name in combobox
-                string query = "SELECT doc_id,Speciality,Channeling_Fee,CONCAT(F_Name,\" \", L_Name)AS FULL FROM doctor";
-                //dbcon.dAdapter = new MySqlDataAdapter(query, dbcon.connDB);
+            //    dbcon.openCon();
+            //    //join the first name and last name from doctor table then use it to display full name in combobox
+            //    string query = "SELECT doc_id,Speciality,Channeling_Fee,CONCAT(F_Name,\" \", L_Name)AS FULL FROM doctor";
+            //    //dbcon.dAdapter = new MySqlDataAdapter(query, dbcon.connDB);
 
-                dbcon.setdAdapter(query);
-                DataSet ds = new DataSet();
-                dbcon.dAdapter.Fill(ds);
-                this.comboBox1.DataSource = ds.Tables[0];
-                this.comboBox1.DisplayMember = "FULL";
+            //    dbcon.setdAdapter(query);
+            //    DataSet ds = new DataSet();
+            //    dbcon.dAdapter.Fill(ds);
+            //    this.comboBox1.DataSource = ds.Tables[0];
+            //    this.comboBox1.DisplayMember = "FULL";
 
 
-                this.comboBox1.ValueMember = "doc_id";
+            //    this.comboBox1.ValueMember = "doc_id";
+                
+            //    dbcon.cmnd(query);
+            //    dbcon.dRead = dbcon.command.ExecuteReader();
+            //    if (dbcon.dRead.Read())
+            //    {
 
-                dbcon.cmnd(query);
-                dbcon.dRead = dbcon.command.ExecuteReader();
-                if (dbcon.dRead.Read())
-                {
+            //        textBox10.Text = dbcon.dRead["Speciality"].ToString();
 
-                    textBox10.Text = dbcon.dRead["Speciality"].ToString();
+            //        textBox11.Text = dbcon.dRead["Channeling_Fee"].ToString();
+            //    }
 
-                    textBox11.Text = dbcon.dRead["Channeling_Fee"].ToString();
-                }
-
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Exception Error :" + exc, "Error");
-            }
-            finally
-            {
-                dbcon.finalize();//this is used to remove the connection to database after program is off
-            }
+            //}
+            //catch (Exception exc)
+            //{
+            //    MessageBox.Show("Exception Error :" + exc, "Error");
+            //}
+            //finally
+            //{
+            //    dbcon.finalize();//this is used to remove the connection to database after program is off
+            //}
 
            
 
@@ -67,25 +84,26 @@ namespace Hospital_Management_System
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                //if  change any option in comboBox this code will change the textboxes accordingly
-                ConnectDb dbcon = new ConnectDb();
-                dbcon.openCon();
-                string query = "SELECT * FROM doctor WHERE doc_id='" + comboBox1.SelectedValue + "'";
-                dbcon.cmnd(query);
-                dbcon.dRead = dbcon.command.ExecuteReader();
-                if (dbcon.dRead.Read())
-                {
-                    textBox10.Text = dbcon.dRead["Speciality"].ToString();
-                    textBox11.Text = dbcon.dRead["Channeling_Fee"].ToString();
 
-                }
+            //try
+            //{
+            //    //if  change any option in comboBox this code will change the textboxes accordingly
+            //    ConnectDb dbcon = new ConnectDb();
+            //    dbcon.openCon();
+            //    string query = "SELECT * FROM doctor WHERE doc_id='" + comboBox1.SelectedValue + "'";
+            //    dbcon.cmnd(query);
+            //    dbcon.dRead = dbcon.command.ExecuteReader();
+            //    if (dbcon.dRead.Read())
+            //    {
+            //        textBox10.Text = dbcon.dRead["Speciality"].ToString();
+            //        textBox11.Text = dbcon.dRead["Channeling_Fee"].ToString();
 
-            }
-            catch(Exception exc){
-                MessageBox.Show("error" + exc.Message, "Error");
-            }
+            //    }
+
+            //}
+            //catch(Exception exc){
+            //    MessageBox.Show("error" + exc.Message, "Error");
+            //}
 
 
         }
@@ -275,10 +293,14 @@ namespace Hospital_Management_System
 
                // dataGridView1.DataSource = dt;
             }
+            
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
             }
+
+            
 
         }
 
@@ -312,18 +334,20 @@ namespace Hospital_Management_System
                 doctor.Qualif = textBox6.Text;
                 doctor.Speclty = textBox7.Text;
                 doctor.Chnlfee = Convert.ToInt32( textBox9.Text);
-                
-                MessageBox.Show("Data saved", "DONE");
+
+                MessageBox.Show("Doctor Details are Saved Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //doc.addDoctor();    //call the addDoctor method to save the data
 
                 client.AddDoctor(doctor);           
             }
+            
             catch(Exception ex)
             {
-                MessageBox.Show("System Error" +ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("An Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
             }
 
-
+            
 
 
                 

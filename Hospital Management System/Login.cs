@@ -98,49 +98,66 @@ namespace Hospital_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
+            LoginService.LoginServiceClient client = new LoginService.LoginServiceClient();
 
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Please Enter  Password..!!", "Invalid Login");
+                MessageBox.Show("Please Enter  Password..!!", "Invalid Login", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 textBox1.Text = "";
 
 
             }
             else
             {
-                MySqlConnection con = new MySqlConnection(ConnectionString);
-                con.Open();
-                sqlstring = "select count(*) from login where user='" + comboBox1.Text.Trim() + "' and password='" + textBox1.Text.Trim() + "'"; //Trim() is to remove white spaces
-                comnd = new MySqlCommand(sqlstring, con);
-                mysqlda = new MySqlDataAdapter(comnd);
-                ds = new DataSet();
-                mysqlda.Fill(ds, "login");
-                long x;
-                x = Convert.ToInt64(comnd.ExecuteScalar());
-                if (x == 1)
+                bool login = client.login(comboBox1.Text,textBox1.Text);
+
+                if (login)
                 {
-                    int y = 0;
-                    progressBar1.Visible = true;
-                    progressBar1.Minimum = 1;
-                    progressBar1.Maximum = 1000;
-                    progressBar1.Value = 1;
-                    progressBar1.Step = 1;
-                    for (y = 1; y <= 1000; y++)
-                    {
-                        progressBar1.PerformStep();
-                    }
-                    //this is code to open login form to main menu form
+
+                    MessageBox.Show("Login Success", "Login Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     Main menu = new Main();
                     menu.Show();
                     this.Hide();
-                    //----
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Password..! Try Again..!", "Invalid Login");
-                    textBox1.Text = "";
+                    MessageBox.Show("Invalid username and password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
-                con.Close();
+
+
+                //MySqlConnection con = new MySqlConnection(ConnectionString);
+                //con.Open();
+                //sqlstring = "select count(*) from login where user='" + comboBox1.Text.Trim() + "' and password='" + textBox1.Text.Trim() + "'"; //Trim() is to remove white spaces
+                //comnd = new MySqlCommand(sqlstring, con);
+                //mysqlda = new MySqlDataAdapter(comnd);
+                //ds = new DataSet();
+                //mysqlda.Fill(ds, "login");
+                //long x;
+                //x = Convert.ToInt64(comnd.ExecuteScalar());
+                //if (x == 1)
+                //{
+                //    int y = 0;
+                //    progressBar1.Visible = true;
+                //    progressBar1.Minimum = 1;
+                //    progressBar1.Maximum = 1000;
+                //    progressBar1.Value = 1;
+                //    progressBar1.Step = 1;
+                //    for (y = 1; y <= 1000; y++)
+                //    {
+                //        progressBar1.PerformStep();
+                //    }
+                //    //this is code to open login form to main menu form
+                //    Main menu = new Main();
+                //    menu.Show();
+                //    this.Hide();
+                //    //----
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Invalid Password..! Try Again..!", "Invalid Login");
+            //        textBox1.Text = "";
+            //    }
+            //    con.Close();
             }
             
         
