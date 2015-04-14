@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Microsoft.Office.Interop.Excel;
 
 namespace Hospital_Management_System
 {
@@ -97,11 +98,11 @@ namespace Hospital_Management_System
         private void button2_Click_1(object sender, EventArgs e)
         {
             //code to clear all the textboxes in the form
-            foreach (Control c in tabPage1.Controls)
+            //foreach (Control c in tabPage1.Controls)
 
-                if (c is TextBox)
+                //if (c is TextBox)
 
-                    (c as TextBox).Clear();
+                //    (c as TextBox).Clear();
 
            
 
@@ -193,6 +194,35 @@ namespace Hospital_Management_System
         private void Nurse_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+
+            Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+
+            Worksheet ws = (Worksheet)Excel.ActiveSheet;
+            Excel.Visible = true;
+
+            ws.Cells[1, 1] = "FName";
+            ws.Cells[1, 2] = "LName";
+            ws.Cells[1, 3] = "Gender";
+            ws.Cells[1, 4] = "Nurse ID";
+            ws.Cells[1, 5] = "Salary";
+            ws.Cells[1, 6] = "DOB";
+            ws.Cells[1, 7] = "Qualifications";
+            ws.Cells[1, 8] = "Shift";
+
+            for (int j = 2; j <= dataGridView1.Rows.Count; j++)
+            {
+                for (int i = 2; i <= 8; i++)
+                {
+                    ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
+
+                }
+
+            }
         }
     }
 }

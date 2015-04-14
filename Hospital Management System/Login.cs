@@ -81,7 +81,7 @@ namespace Hospital_Management_System
         {
             
            
-            // string query = @"SELECT FirstName from Employees";
+            
             string query2 = "SELECT user,Password FROM login";
             MySqlDataAdapter dAdapter2 = new MySqlDataAdapter(query2, ConnectionString);
             DataTable source2 = new DataTable();

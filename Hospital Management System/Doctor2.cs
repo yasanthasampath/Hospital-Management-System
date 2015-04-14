@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Office.Interop.Excel;
 
 namespace Hospital_Management_System
 {
@@ -142,7 +142,7 @@ namespace Hospital_Management_System
                 dbcon.command.Connection = dbcon.connDB;
                 dbcon.dAdapter.SelectCommand = dbcon.command;
 
-                DataTable dt = new DataTable(); //getting the data
+                System.Data.DataTable dt = new System.Data.DataTable(); //getting the data
                 dbcon.dAdapter.Fill(dt);
 
                 dataGridView1.DataSource = dt;
@@ -206,11 +206,11 @@ namespace Hospital_Management_System
 
         private void button7_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Controls)
+            //foreach (Control c in this.Controls)
 
-                if (c is TextBox)
+            //    if (c is TextBox)
 
-                    (c as TextBox).Clear();
+            //        (c as TextBox).Clear();
 
             foreach (Control d in this.Controls)
 
@@ -237,11 +237,11 @@ namespace Hospital_Management_System
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-        foreach (Control c in tabPage1.Controls)
+        //foreach (Control c in tabPage1.Controls)
 
-                if (c is TextBox)
+        //        if (c is TextBox)
 
-                    (c as TextBox).Clear();
+        //            (c as TextBox).Clear();
 
             
         }
@@ -255,11 +255,11 @@ namespace Hospital_Management_System
 
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Controls)
+            //foreach (Control c in this.Controls)
 
-                if (c is TextBox)
+            //    if (c is TextBox)
 
-                    (c as TextBox).Clear();
+            //        (c as TextBox).Clear();
 
             foreach (Control d in this.Controls)
 
@@ -368,6 +368,38 @@ namespace Hospital_Management_System
         private void tabPage2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+
+            Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+
+            Worksheet ws = (Worksheet)Excel.ActiveSheet;
+            Excel.Visible = true;
+
+            ws.Cells[1, 1] = "Doctor ID";
+            ws.Cells[1, 2] = "FName";
+            ws.Cells[1, 3] = "LName";
+            ws.Cells[1, 4] = "Gender";
+            ws.Cells[1, 5] = "NIC";
+            ws.Cells[1, 6] = "Salary";
+            ws.Cells[1, 7] = "DOB";
+            ws.Cells[1, 8] = "Age";
+            ws.Cells[1, 9] = "Qualifications";
+            ws.Cells[1, 10] = "Speciality";
+            ws.Cells[1, 11] = "Channeling_Fee";
+
+            for (int j = 2; j <= dataGridView1.Rows.Count; j++)
+            {
+                for (int i = 2; i <= 11; i++)
+                {
+                    ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
+
+                }
+
+            }
         }
 
     }

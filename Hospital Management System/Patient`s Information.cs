@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient; //Include this in every form to use mysql namespace
+using Microsoft.Office.Interop.Excel;
+
 
 namespace Hospital_Management_System 
 {
@@ -48,7 +50,7 @@ namespace Hospital_Management_System
             string ConnectionString = "server=localhost;User Id=root;database=hospital_system";
             string query = "SELECT * FROM blood_group";
             MySqlDataAdapter dAdapter = new MySqlDataAdapter(query, ConnectionString); //MysqlDataAdapter is a helper class  which represent SqlCommand, SqlConnection
-            DataTable source = new DataTable();     //getting the data
+            System.Data.DataTable source = new System.Data.DataTable();     //getting the data
             dAdapter.Fill(source);
             comboBox2.DataSource = source;
 
@@ -185,10 +187,10 @@ namespace Hospital_Management_System
         private void button2_Click_1(object sender, EventArgs e)
         {
             //there is no code here foreach (Control c in this.Controls)
-             foreach (Control c in this.Controls)
-                if (c is TextBox)
+             //foreach (Control c in this.Controls)
+             //   if (c is TextBox)
 
-                    (c as TextBox).Clear();
+             //       (c as TextBox).Clear();
 
             foreach (Control d in this.Controls)
 
@@ -223,6 +225,44 @@ namespace Hospital_Management_System
         private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+
+            Workbook wb = Excel.Workbooks.Add(XlSheetType.xlWorksheet);
+
+            Worksheet ws = (Worksheet)Excel.ActiveSheet;
+            Excel.Visible = true;
+
+            ws.Cells[1, 1] = "Patient ID";
+            ws.Cells[1, 2] = "FName";
+            ws.Cells[1, 3] = "LName";
+            ws.Cells[1, 4] = "Date_Adm";
+            ws.Cells[1, 5] = "Date_Dis";
+            ws.Cells[1, 6] = "NIC";
+            ws.Cells[1, 7] = "Gender";
+            ws.Cells[1, 8] = "DOB";
+            ws.Cells[1, 9] = "Blood_Grp";
+            ws.Cells[1, 10] = "Weight";
+            ws.Cells[1, 11] = "Marital";
+            ws.Cells[1, 12] = "Add1";
+            ws.Cells[1, 13] = "Add2";
+            ws.Cells[1, 14] = "Nationality";
+            ws.Cells[1, 15] = "State";
+            ws.Cells[1, 16] = "Tel_Num";
+            ws.Cells[1, 17] = "Mob_Num";
+
+            for (int j = 2; j <= dataGridView1.Rows.Count; j++)
+            {
+                for (int i = 2; i <= 17; i++)
+                {
+                    ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
+
+                }
+
+            }
         }
 
       
