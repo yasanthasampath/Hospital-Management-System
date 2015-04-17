@@ -237,13 +237,13 @@ namespace Hospital_Management_System
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-        //foreach (Control c in tabPage1.Controls)
-
-        //        if (c is TextBox)
-
-        //            (c as TextBox).Clear();
-
-            
+            //textBox1.Text = "";
+            //textBox2.Text = ""; 
+            //txtNic.Text = "";
+            //textBox4.Text = "";
+            //textBox6.Text = "";
+            //textBox7.Text = "";
+            //textBox9.Text = "";
         }
 
         
@@ -328,12 +328,12 @@ namespace Hospital_Management_System
 
                 }
                 doctor.Nic = txtNic.Text;
-                doctor.Salary = Convert.ToDouble( textBox4.Text);
-                doctor.Age =Convert.ToInt32( lblAge.Text);
+                doctor.Salary = Convert.ToDouble(textBox4.Text);
+                doctor.Age = Convert.ToInt32(lblAge.Text);
                 doctor.Dob = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
                 doctor.Qualif = textBox6.Text;
                 doctor.Speclty = textBox7.Text;
-                doctor.Chnlfee = Convert.ToInt32( textBox9.Text);
+                doctor.Chnlfee = Convert.ToInt32(textBox9.Text);
 
                 MessageBox.Show("Doctor Details are Saved Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //doc.addDoctor();    //call the addDoctor method to save the data
@@ -355,8 +355,17 @@ namespace Hospital_Management_System
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
         {
-            int age = DateTime.Today.Year - dateTimePicker1.Value.Year;
-            lblAge.Text = age.ToString();
+            //if (dateTimePicker1.Value > DateTime.Today.Date)
+            //{
+            //    MessageBox.Show("DOB should be past value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            //    return;
+            //}
+
+            //else
+            //{
+                int age = DateTime.Today.Year - dateTimePicker1.Value.Year;
+                lblAge.Text = age.ToString();
+            //}
         }
 
         private void tabPage1_Click_1(object sender, EventArgs e)
@@ -400,6 +409,11 @@ namespace Hospital_Management_System
                 }
 
             }
+        }
+
+        private void btnRefrsh_Click(object sender, EventArgs e)
+        {
+            textBox5.Text = "";
         }
 
     }

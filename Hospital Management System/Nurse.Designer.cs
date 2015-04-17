@@ -54,6 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnExcel = new System.Windows.Forms.Button();
+            this.btnRefrsh = new System.Windows.Forms.Button();
             this.m.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -361,6 +362,7 @@
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
+            this.tabPage2.Controls.Add(this.btnRefrsh);
             this.tabPage2.Controls.Add(this.btnExcel);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.dataGridView1);
@@ -374,6 +376,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Search Nurse Information";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(386, 362);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(93, 36);
+            this.btnExcel.TabIndex = 54;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // button5
             // 
@@ -395,7 +407,7 @@
             this.dataGridView1.GridColor = System.Drawing.Color.DarkRed;
             this.dataGridView1.Location = new System.Drawing.Point(17, 109);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(618, 247);
+            this.dataGridView1.Size = new System.Drawing.Size(618, 234);
             this.dataGridView1.TabIndex = 11;
             // 
             // button6
@@ -514,15 +526,15 @@
             this.pictureBox6.TabIndex = 42;
             this.pictureBox6.TabStop = false;
             // 
-            // btnExcel
+            // btnRefrsh
             // 
-            this.btnExcel.Location = new System.Drawing.Point(386, 362);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(93, 36);
-            this.btnExcel.TabIndex = 54;
-            this.btnExcel.Text = "Excel";
-            this.btnExcel.UseVisualStyleBackColor = true;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            this.btnRefrsh.Location = new System.Drawing.Point(247, 362);
+            this.btnRefrsh.Name = "btnRefrsh";
+            this.btnRefrsh.Size = new System.Drawing.Size(84, 36);
+            this.btnRefrsh.TabIndex = 55;
+            this.btnRefrsh.Text = "Refresh";
+            this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
             // 
             // Nurse
             // 
@@ -594,5 +606,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Button btnRefrsh;
     }
 }

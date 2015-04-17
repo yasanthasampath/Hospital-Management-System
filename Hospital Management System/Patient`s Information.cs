@@ -119,8 +119,8 @@ namespace Hospital_Management_System
 
                 if (string.IsNullOrEmpty(this.textBox1.Text) ||
                    string.IsNullOrEmpty(this.textBox2.Text) ||
-                    string.IsNullOrEmpty(this.textBox3.Text) ||
-                    string.IsNullOrEmpty(this.textBox4.Text))
+                   string.IsNullOrEmpty(this.textBox3.Text))
+                    
                     
                 {
                     MessageBox.Show("Please make sure you filled all fields", "error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -129,22 +129,90 @@ namespace Hospital_Management_System
                 {
                     patient = new PatientService.PatientClass(); 
                     //PatientClass pc = new PatientClass();
+
                     patient.PatID = textBox1.Text;
                     patient.Fname = textBox2.Text;
                     patient.Lname = textBox3.Text;
-                    patient.Nic = textBox7.Text;
-                    patient.Dob = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-                    patient.Weight = textBox8.Text;
-                    patient.Address1 = textBox4.Text;
-                    patient.Address2 = textBox9.Text;
-                    patient.Country1 = comboBox1.Text;
-                    patient.State = comboBox4.Text;
 
+                    if (textBox7.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please enter a value for NIC", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Nic = textBox7.Text;
+                    }
+
+                    patient.Dob = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+
+                    if (textBox8.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please enter a value for Weight", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Weight = textBox8.Text;
+                    }
+
+                    
+                    if (textBox4.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please enter a value for Address1", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Address1 = textBox4.Text;
+                    }
+
+                    if (textBox9.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please enter a value for Address2", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Address2 = textBox9.Text;
+                    }
+
+
+                    if (comboBox1.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Please select a Country", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Country1 = comboBox1.Text;
+                    }
+
+
+                    if (comboBox4.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Please select a State", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.State = comboBox4.Text;
+                    }
                     
                     patient.DateAdmit = dateTimePicker1.Value.ToString("yyyy-MM-dd");
                     patient.DateDisch = dateTimePicker3.Value.ToString("yyyy-MM-dd");
                     patient.Bgroup = comboBox2.Text;
-                    patient.Maritial = comboBox3.Text;
+
+                    if (comboBox3.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Please select a Marital State", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Maritial = comboBox3.Text;
+                    }
+
 
                     if (radioButton1.Checked == true)
                     {
@@ -155,9 +223,28 @@ namespace Hospital_Management_System
                     {
                         patient.Gender = Convert.ToString(radioButton2.Text);
                     }
-                    patient.Telnum = maskedTextBox4.Text;
-                    patient.Mobnum = maskedTextBox3.Text;
 
+                    
+                    if (maskedTextBox4.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please enter a value for Tel Num", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Telnum = maskedTextBox4.Text;
+                    }
+
+                    
+                    if (maskedTextBox3.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please enter a value for Mob Num", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        patient.Mobnum = maskedTextBox3.Text;
+                    }
 
 
 
@@ -186,17 +273,15 @@ namespace Hospital_Management_System
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            //there is no code here foreach (Control c in this.Controls)
-             //foreach (Control c in this.Controls)
-             //   if (c is TextBox)
-
-             //       (c as TextBox).Clear();
-
-            foreach (Control d in this.Controls)
-
-                if (d is MaskedTextBox)
-
-                    (d as MaskedTextBox).Clear();
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            maskedTextBox3.Text = "";
+            maskedTextBox4.Text = "";
 
         }
 
@@ -207,9 +292,18 @@ namespace Hospital_Management_System
 
         private void dateTimePicker2_ValueChanged_1(object sender, EventArgs e)
         {
-            //to calculate age
-            int age = DateTime.Today.Year - dateTimePicker2.Value.Year;     //Current year - birth year
-            label13.Text = age.ToString();
+            if (dateTimePicker2.Value > DateTime.Today.Date)
+            {
+                MessageBox.Show("DOB should be past value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            else
+            {
+                //to calculate age
+                int age = DateTime.Today.Year - dateTimePicker2.Value.Year;     //Current year - birth year
+                label13.Text = age.ToString();
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -263,6 +357,28 @@ namespace Hospital_Management_System
                 }
 
             }
+        }
+
+        private void btnRefrsh_Click(object sender, EventArgs e)
+        {
+            textBox5.Text = "";
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker3.Value < DateTime.Today.Date)
+            {
+                MessageBox.Show("Date Discharge should be a future value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);           
+                return;
+            }
+
+           
         }
 
       

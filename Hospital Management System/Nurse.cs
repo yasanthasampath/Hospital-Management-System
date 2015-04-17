@@ -48,9 +48,28 @@ namespace Hospital_Management_System
             {
                 nurse = new NurseService.Nurseclass();
               //  Nurseclass nur = new Nurseclass();
-                nurse.Fname = textBox1.Text;
-                nurse.Lname = textBox2.Text;
+                if (textBox1.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for First Name","Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    nurse.Fname = textBox1.Text;
+                }
 
+                
+                if (textBox2.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for Last Name", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    nurse.Lname = textBox2.Text;
+                }
+
+                
                 if (radioButton1.Checked == true)
                 {
                     nurse.Gender = Convert.ToString(radioButton1.Tag);
@@ -61,11 +80,49 @@ namespace Hospital_Management_System
                     nurse.Gender = Convert.ToString(radioButton2.Tag);
                 }
 
-                nurse.NurseId1 = textBox3.Text;
-                nurse.Salary = textBox4.Text;
+               
+                if (textBox2.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for Last Name", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    nurse.NurseId1 = textBox3.Text;
+                }
+
+                
+                if (textBox4.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for Salary", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    nurse.Salary = textBox4.Text;
+                }
+
                 nurse.Dob = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
-                nurse.Qualif = textBox6.Text;
-                nurse.Shift = textBox7.Text;
+
+                if (textBox6.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for Qualifications", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    nurse.Qualif = textBox6.Text;
+                }
+
+                if (textBox7.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for Shift", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    nurse.Shift = textBox7.Text;
+                }
 
                 MessageBox.Show("Nurse Details are Saved Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                // nur.addNurse();     //call the addNurse method to save the data
@@ -97,13 +154,13 @@ namespace Hospital_Management_System
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            //code to clear all the textboxes in the form
-            //foreach (Control c in tabPage1.Controls)
-
-                //if (c is TextBox)
-
-                //    (c as TextBox).Clear();
-
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox1.Text = "";
            
 
         }
@@ -162,8 +219,17 @@ namespace Hospital_Management_System
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
         {
-            int age = DateTime.Today.Year - dateTimePicker1.Value.Year;
-            label16.Text=age.ToString();
+            //if (dateTimePicker1.Value > DateTime.Today.Date)
+            //{
+            //    MessageBox.Show("DOB should be past value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);           
+            //    return;
+            //}
+
+            //else
+            //{
+                int age = DateTime.Today.Year - dateTimePicker1.Value.Year;
+                label16.Text = age.ToString();
+            //}
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -223,6 +289,11 @@ namespace Hospital_Management_System
                 }
 
             }
+        }
+
+        private void btnRefrsh_Click(object sender, EventArgs e)
+        {
+            textBox5.Text = "";
         }
     }
 }
