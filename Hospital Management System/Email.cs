@@ -66,5 +66,10 @@ namespace Hospital_Management_System
         {
 
         }
+
+        private void btnExcit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
