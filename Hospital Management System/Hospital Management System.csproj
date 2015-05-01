@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillClass.cs" />
     <Compile Include="ConnectDb.cs" />
     <Compile Include="Doctor2.cs">
       <SubType>Form</SubType>
@@ -194,9 +193,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DoctorService\HospitalService.wsdl" />
-    <None Include="Service References\DoctorService\Hospital_Management_System.DoctorService.DoctorClass.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\DoctorService\item.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -350,7 +350,7 @@ namespace Hospital_Management_System
 
             for (int j = 2; j <= dataGridView1.Rows.Count; j++)
             {
-                for (int i = 2; i <= 17; i++)
+                for (int i = 1; i <= 17; i++)
                 {
                     ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
 
@@ -379,6 +379,11 @@ namespace Hospital_Management_System
             }
 
            
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
 
       

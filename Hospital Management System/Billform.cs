@@ -13,7 +13,8 @@ namespace Hospital_Management_System
     public partial class BillForm : Form
     {
      //   BillClass bill1;
-
+        BillService.BillServiceClient client ;
+        BillService.BillClass bill1 ;
        
         public BillForm()
         {
@@ -27,43 +28,47 @@ namespace Hospital_Management_System
 
         private void Bill_Load(object sender, EventArgs e)
         {
-            label17.Text = "0";
-            label18.Text = Convert.ToString(BillClass.channel);
+           // label17.Text = "0";
+          //  label18.Text = Convert.ToString(BillClass.channel);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-    ///check        bill1.BillTot = bill1.Channel + bill1.calcCharge();
-   /// check        label18.Text = Convert.ToString(bill1.BillTot);
-   
-
+   //         label18.Text = 0+"";
+   //         bill1 = new BillService.BillClass();
+   //        // bill1.Channel = 1500;
+   //      //  bill1.BillTot = bill1.Channel + bill1.calcCharge();
+   ///// check        label18.Text = Convert.ToString(bill1.BillTot);
+   //       //  bill1.BillTot =Convert.ToInt32( bill1.Channel + label17.Text);
+   //         bill1.BillTot = Convert.ToInt32(label16.Text) + Convert.ToInt32(label17.Text);
+   //         label18.Text = bill1.BillTot+"";
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             try
             {
-                if (!(dateTimePicker1.Value > DateTime.Today.Date)) //date admit should only be past or today
+              /*  if (!(dateTimePicker1.Value > DateTime.Today.Date)) //date admit should only be past or today
                 {
                     if (dateTimePicker2.Value > DateTime.Today)
                     {
-
+                */
                 ///check       bill1.DaysAdmit = dateTimePicker1.Value;
                 ///check        bill1.DaysDisch = dateTimePicker2.Value;
                     ///check    label17.Text = Convert.ToString(bill1.calcCharge());
-                        int daysStay = (dateTimePicker1.Value).Date.Day - (dateTimePicker2.Value).Date.Day;
+                int daysStay = ((dateTimePicker2.Value).Date - (dateTimePicker1.Value).Date).Days;
                         label17.Text = Convert.ToString  (500 * daysStay);
-                    }
+                /*    }
 
                     else
                     {
                         MessageBox.Show("Date discharge can only be a future date", "Error");
                     }
-                }
-                else
+                }*/
+             /*   else
                 {//after they are admitted we make the bill, so date admit is always past
                     MessageBox.Show("Date admitted can only or past", "Error wrong date");
-                }
+                }*/
             }
             catch (Exception exc)
             {
@@ -90,8 +95,8 @@ namespace Hospital_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BillService.BillServiceClient client = new BillService.BillServiceClient();
-            BillService.BillClass bill1 = new BillService.BillClass();
+             client = new BillService.BillServiceClient();
+             bill1 = new BillService.BillClass();
             
             try
             {
@@ -132,6 +137,18 @@ namespace Hospital_Management_System
         private void label13_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label17_TextChanged(object sender, EventArgs e)
+        {
+            label18.Text = 0 + "";
+            bill1 = new BillService.BillClass();
+            // bill1.Channel = 1500;
+            //  bill1.BillTot = bill1.Channel + bill1.calcCharge();
+            /// check        label18.Text = Convert.ToString(bill1.BillTot);
+            //  bill1.BillTot =Convert.ToInt32( bill1.Channel + label17.Text);
+            bill1.BillTot = Convert.ToInt32(label16.Text) + Convert.ToInt32(label17.Text);
+            label18.Text = bill1.BillTot + "";
         }
     }
 }

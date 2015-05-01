@@ -12,11 +12,11 @@ namespace Hospital_Management_System
 {
     public partial class Login : Form
     {
-        string ConnectionString = "server=localhost;User Id=root;database=hospital_system";
-        MySqlCommand comnd;
-        MySqlDataAdapter mysqlda;
-        DataSet ds;
-        string sqlstring;
+        //string ConnectionString = "server=localhost;User Id=root;database=hospital_system";
+        //MySqlCommand comnd;
+        //MySqlDataAdapter mysqlda;
+        //DataSet ds;
+        //string sqlstring;
 
         //----for time
         private int hr, min, sec;
@@ -79,16 +79,16 @@ namespace Hospital_Management_System
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
-           
-            
-            string query2 = "SELECT user,Password FROM login";
-            MySqlDataAdapter dAdapter2 = new MySqlDataAdapter(query2, ConnectionString);
-            DataTable source2 = new DataTable();
-            dAdapter2.Fill(source2);
-            comboBox1.DataSource = source2;
-            
-            comboBox1.DisplayMember = "user";
+
+
+
+            //string query2 = "SELECT user,Password FROM login";
+            //MySqlDataAdapter dAdapter2 = new MySqlDataAdapter(query2, ConnectionString);
+            //DataTable source2 = new DataTable();
+            //dAdapter2.Fill(source2);
+            //comboBox1.DataSource = source2;
+
+            //comboBox1.DisplayMember = "user";
             
 
 
@@ -109,7 +109,8 @@ namespace Hospital_Management_System
             }
             else
             {
-                bool login = client.login(comboBox1.Text,textBox1.Text);
+                //bool login = client.login(comboBox1.Text,textBox1.Text);
+                bool login = client.login(textBox2.Text, textBox1.Text);
 
                 if (login)
                 {

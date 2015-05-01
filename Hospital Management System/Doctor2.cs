@@ -22,61 +22,25 @@ namespace Hospital_Management_System
 
         private void Doctor2_Load(object sender, EventArgs e)
         {
-            //DoctorService.DoctorServiceClient client = new DoctorService.DoctorServiceClient();
-            //DoctorService.DoctorClass doctor = new DoctorService.DoctorClass();
+            DoctorService.DoctorServiceClient client = new DoctorService.DoctorServiceClient();
+            DoctorService.DoctorClass doctor = new DoctorService.DoctorClass();
 
            // dataGridView1.DataSource = client.getDoctorPriceDetails();
-            //this.comboBox1.DataSource = client.getDoctorPriceDetails();
-            //this.comboBox1.DisplayMember = "FULL";
-            //this.comboBox1.ValueMember = "doc_id";
-            //textBox10.Text = doctor.Speclty;
-            //textBox11.Text = doctor.Chnlfee.ToString();
+          /*  doctor = client.getDoctorPriceDetails();
+            this.comboBox1.DataSource = client.getDoctorPriceDetails();
+            this.comboBox1.DisplayMember = "FULL";
+            this.comboBox1.ValueMember = "doc_id";
+            textBox10.Text = doctor.Speclty;
+            textBox11.Text = doctor.Chnlfee.ToString();*/
 
+            this.comboBox1.DisplayMember = "FULL";
+            this.comboBox1.ValueMember = "FULL";
 
-           // doctor = client.getDoctorPriceDetails();
-          //  comboBox1.DataSource = doctor.fullName;
-            //textBox10.Text = doctor.Speclty;
-            //textBox11.Text = doctor.Chnlfee.ToString();
-           
+            
 
-            //This is to display the doctor details onto the combobox and textboxes
-            //ConnectDb dbcon = new ConnectDb();
-            //try
-            //{
-               
-            //    dbcon.openCon();
-            //    //join the first name and last name from doctor table then use it to display full name in combobox
-            //    string query = "SELECT doc_id,Speciality,Channeling_Fee,CONCAT(F_Name,\" \", L_Name)AS FULL FROM doctor";
-            //    //dbcon.dAdapter = new MySqlDataAdapter(query, dbcon.connDB);
-
-            //    dbcon.setdAdapter(query);
-            //    DataSet ds = new DataSet();
-            //    dbcon.dAdapter.Fill(ds);
-            //    this.comboBox1.DataSource = ds.Tables[0];
-            //    this.comboBox1.DisplayMember = "FULL";
-
-
-            //    this.comboBox1.ValueMember = "doc_id";
-                
-            //    dbcon.cmnd(query);
-            //    dbcon.dRead = dbcon.command.ExecuteReader();
-            //    if (dbcon.dRead.Read())
-            //    {
-
-            //        textBox10.Text = dbcon.dRead["Speciality"].ToString();
-
-            //        textBox11.Text = dbcon.dRead["Channeling_Fee"].ToString();
-            //    }
-
-            //}
-            //catch (Exception exc)
-            //{
-            //    MessageBox.Show("Exception Error :" + exc, "Error");
-            //}
-            //finally
-            //{
-            //    dbcon.finalize();//this is used to remove the connection to database after program is off
-            //}
+            this.comboBox1.DataSource = client.getDoctorPriceDetails();
+              
+          
 
            
 
@@ -343,7 +307,7 @@ namespace Hospital_Management_System
             
             catch(Exception ex)
             {
-                MessageBox.Show("An Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
+                MessageBox.Show("kjhkjhkhAn Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation);
             }
 
@@ -402,7 +366,7 @@ namespace Hospital_Management_System
 
             for (int j = 2; j <= dataGridView1.Rows.Count; j++)
             {
-                for (int i = 2; i <= 11; i++)
+                for (int i = 1; i <= 11; i++)
                 {
                     ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
 

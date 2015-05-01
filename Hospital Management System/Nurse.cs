@@ -280,9 +280,9 @@ namespace Hospital_Management_System
             ws.Cells[1, 7] = "Qualifications";
             ws.Cells[1, 8] = "Shift";
 
-            for (int j = 2; j <= dataGridView1.Rows.Count; j++)
+            for (int j =  2; j <= dataGridView1.Rows.Count; j++)
             {
-                for (int i = 2; i <= 8; i++)
+                for (int i = 1; i <= 8; i++)
                 {
                     ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
 

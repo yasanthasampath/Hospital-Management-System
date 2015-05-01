@@ -832,7 +832,7 @@ namespace Hospital_Management_System.DoctorService {
         System.Data.DataTable getDoctor(string fname, string lname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoctorService/getDoctorPriceDetails", ReplyAction="http://tempuri.org/IDoctorService/getDoctorPriceDetailsResponse")]
-        Hospital_Management_System.DoctorService.DoctorClass getDoctorPriceDetails();
+        System.Data.DataTable getDoctorPriceDetails();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -870,8 +870,48 @@ namespace Hospital_Management_System.DoctorService {
             return base.Channel.getDoctor(fname, lname);
         }
         
-        public Hospital_Management_System.DoctorService.DoctorClass getDoctorPriceDetails() {
+        public System.Data.DataTable getDoctorPriceDetails() {
             return base.Channel.getDoctorPriceDetails();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoctorService.ILoginService")]
+    public interface ILoginService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/login", ReplyAction="http://tempuri.org/ILoginService/loginResponse")]
+        bool login(string username, string password);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ILoginServiceChannel : Hospital_Management_System.DoctorService.ILoginService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LoginServiceClient : System.ServiceModel.ClientBase<Hospital_Management_System.DoctorService.ILoginService>, Hospital_Management_System.DoctorService.ILoginService {
+        
+        public LoginServiceClient() {
+        }
+        
+        public LoginServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public LoginServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public LoginServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public LoginServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool login(string username, string password) {
+            return base.Channel.login(username, password);
         }
     }
 }

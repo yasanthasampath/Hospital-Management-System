@@ -430,7 +430,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(157, 376);
+            this.textBox8.Location = new System.Drawing.Point(157, 378);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(121, 24);
             this.textBox8.TabIndex = 25;
@@ -440,7 +440,7 @@
             this.label17.AutoSize = true;
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(23, 385);
+            this.label17.Location = new System.Drawing.Point(24, 378);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(61, 22);
             this.label17.TabIndex = 24;
@@ -503,6 +503,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 26);
             this.comboBox2.TabIndex = 20;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged_1);
             // 
             // dateTimePicker3
             // 
