@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;   //Include this in every form to use mysql namespace
+using System.ServiceModel;
 
 namespace Hospital_Management_System
 {
@@ -34,41 +35,26 @@ namespace Hospital_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-   //         label18.Text = 0+"";
-   //         bill1 = new BillService.BillClass();
-   //        // bill1.Channel = 1500;
-   //      //  bill1.BillTot = bill1.Channel + bill1.calcCharge();
-   ///// check        label18.Text = Convert.ToString(bill1.BillTot);
-   //       //  bill1.BillTot =Convert.ToInt32( bill1.Channel + label17.Text);
-   //         bill1.BillTot = Convert.ToInt32(label16.Text) + Convert.ToInt32(label17.Text);
-   //         label18.Text = bill1.BillTot+"";
+  
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             try
             {
-              /*  if (!(dateTimePicker1.Value > DateTime.Today.Date)) //date admit should only be past or today
-                {
-                    if (dateTimePicker2.Value > DateTime.Today)
-                    {
-                */
-                ///check       bill1.DaysAdmit = dateTimePicker1.Value;
-                ///check        bill1.DaysDisch = dateTimePicker2.Value;
-                    ///check    label17.Text = Convert.ToString(bill1.calcCharge());
-                int daysStay = ((dateTimePicker2.Value).Date - (dateTimePicker1.Value).Date).Days;
-                        label17.Text = Convert.ToString  (500 * daysStay);
-                /*    }
+                if (dateTimePicker2.Value < DateTime.Today.Date)
+            {
+                MessageBox.Show("Discharge Date should be Future value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);           
+                return;
+            }
 
-                    else
-                    {
-                        MessageBox.Show("Date discharge can only be a future date", "Error");
-                    }
-                }*/
-             /*   else
-                {//after they are admitted we make the bill, so date admit is always past
-                    MessageBox.Show("Date admitted can only or past", "Error wrong date");
-                }*/
+            else
+            {
+            
+                int daysStay = ((dateTimePicker2.Value).Date - (dateTimePicker1.Value).Date).Days;
+                label17.Text = Convert.ToString  (500 * daysStay);
+            }
+            
             }
             catch (Exception exc)
             {
@@ -105,21 +91,46 @@ namespace Hospital_Management_System
 
                 bill1.DaysAdmit = Convert.ToDateTime(dateTimePicker1.Value.Date.ToString("yyyy-MM-dd"));
                 bill1.DaysDisch = Convert.ToDateTime(dateTimePicker2.Value.ToString("yyyy-MM-dd"));
-                bill1.Ward = comboBox1.Text;
 
-                bill1.Room = txtroo.Text;
+                if (comboBox1.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a Ward", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    bill1.Ward = comboBox1.Text;
+                }
+
+                if (txtroo.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a value for Room Number", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    bill1.Room = txtroo.Text;
+                }
 
                 bill1.BillTot = Convert.ToInt32(label18.Text);
                 bill1.Charge = Convert.ToInt32(label17.Text);
 
+                MessageBox.Show("Bill Details are Saved Successfully", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 client.AddBill(bill1);
                // MessageBox.Show("Data saved", "DONE");
             }
 
+            catch (CommunicationException fx)
+            {
+                MessageBox.Show("Communication error: " + fx.Message, "cannot connect to the host computer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SendKeys.Send("%{F4}");
+            }
+
             catch(Exception ex)
             {
-                MessageBox.Show("Error, Please check" + ex.Message);
+                MessageBox.Show("An Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
             }
             
         }
@@ -143,10 +154,7 @@ namespace Hospital_Management_System
         {
             label18.Text = 0 + "";
             bill1 = new BillService.BillClass();
-            // bill1.Channel = 1500;
-            //  bill1.BillTot = bill1.Channel + bill1.calcCharge();
-            /// check        label18.Text = Convert.ToString(bill1.BillTot);
-            //  bill1.BillTot =Convert.ToInt32( bill1.Channel + label17.Text);
+            
             bill1.BillTot = Convert.ToInt32(label16.Text) + Convert.ToInt32(label17.Text);
             label18.Text = bill1.BillTot + "";
         }

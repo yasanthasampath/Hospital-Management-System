@@ -71,5 +71,14 @@ namespace Hospital_Management_System
         {
             this.Close();
         }
+
+        private void btnRefrsh_Click(object sender, EventArgs e)
+        {
+            txtRes5.Text = "";
+            txtSub1.Text = "";
+            txtBody2.Text = "";
+            txtEm3.Text = "";
+            txtPas4.Text = "";
+        }
     }
 }

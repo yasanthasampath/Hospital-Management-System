@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
 
 namespace Hospital_Management_System
 {
@@ -242,20 +243,13 @@ namespace Hospital_Management_System
 
                 dataGridView1.DataSource = client.getDoctor(textBox5.Text,textBox5.Text);
                
-               // ConnectDb condb = new ConnectDb();
-               // string qry = "SELECT *FROM doctor WHERE F_Name LIKE '%" + textBox5.Text + "%' OR L_Name LIKE '%" + textBox5.Text + "%'";
-             
-               // condb.cmnd(qry);
-               // condb.command.Connection = condb.connDB;
+              
+            }
 
-               
-               // condb.setdAdapter(qry);
-               //condb.dAdapter.SelectCommand = condb.command;
-
-               // DataTable dt = new DataTable();
-               // condb.dAdapter.Fill(dt);
-
-               // dataGridView1.DataSource = dt;
+            catch (CommunicationException fx)
+            {
+                MessageBox.Show("Communication error: " + fx.Message, "cannot connect to the host computer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SendKeys.Send("%{F4}");
             }
             
             catch (Exception ex)

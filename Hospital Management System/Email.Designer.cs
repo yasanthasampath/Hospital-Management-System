@@ -162,6 +162,7 @@
             this.btnRefrsh.TabIndex = 6;
             this.btnRefrsh.Text = "Refresh";
             this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
             // 
             // Email
             // 

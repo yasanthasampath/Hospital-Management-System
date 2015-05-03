@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient; //Include this in every form to use mysql namespace
 using Microsoft.Office.Interop.Excel;
-
+using System.ServiceModel;
 
 namespace Hospital_Management_System 
 {
@@ -96,6 +96,13 @@ namespace Hospital_Management_System
                 dataGridView1.DataSource = client.getPatient(textBox5.Text, textBox5.Text);
                
             }
+
+            catch (CommunicationException fx)
+            {
+                MessageBox.Show("Communication error: " + fx.Message, "cannot connect to the host computer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SendKeys.Send("%{F4}");
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("System Error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -256,6 +263,13 @@ namespace Hospital_Management_System
                 }
                 
             }
+
+            catch (CommunicationException fx)
+            {
+                MessageBox.Show("Communication error: " + fx.Message, "cannot connect to the host computer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SendKeys.Send("%{F4}");
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("An Error in Process, Please Check again" + ex.Message, "Error Message", MessageBoxButtons.OK,
@@ -382,6 +396,11 @@ namespace Hospital_Management_System
         }
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
 
 namespace Hospital_Management_System
 {
@@ -130,6 +131,12 @@ namespace Hospital_Management_System
 
             }
 
+            catch (CommunicationException fx)
+            {
+                MessageBox.Show("Communication error: " + fx.Message, "cannot connect to the host computer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SendKeys.Send("%{F4}");
+            }
+
             catch(Exception ex) 
             {
                 MessageBox.Show("An Error in Process, Please Check again"+ex.Message,"Error Message",MessageBoxButtons.OK,
@@ -137,6 +144,7 @@ namespace Hospital_Management_System
 
 
             }
+
 
             //finally
             //{
@@ -207,29 +215,35 @@ namespace Hospital_Management_System
 
                 dataGridView1.DataSource = client.getNurse(textBox5.Text,textBox5.Text);
             }
+
+            catch (CommunicationException fx)
+            {
+                MessageBox.Show("Communication error: " + fx.Message, "cannot connect to the host computer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SendKeys.Send("%{F4}");
+            }
            
             catch(Exception ex)
             {
                 MessageBox.Show("System Error" +ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
-            
+          
 
         }
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
         {
-            //if (dateTimePicker1.Value > DateTime.Today.Date)
-            //{
-            //    MessageBox.Show("DOB should be past value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);           
-            //    return;
-            //}
+            if (dateTimePicker1.Value > DateTime.Today.Date)
+            {
+                MessageBox.Show("DOB should be past value", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);           
+                return;
+            }
 
-            //else
-            //{
+            else
+            {
                 int age = DateTime.Today.Year - dateTimePicker1.Value.Year;
                 label16.Text = age.ToString();
-            //}
+            }
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)

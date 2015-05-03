@@ -104,3 +104,19 @@ C:\Users\User\Documents\Visual Studio 2013\Projects\Hospital Management System\H
 C:\Users\User\Documents\Visual Studio 2013\Projects\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital Management System.csproj.GenerateResource.Cache
 C:\Users\User\Documents\Visual Studio 2013\Projects\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Email.resources
 C:\Users\User\Documents\Visual Studio 2013\Projects\Hospital Management System\Hospital Management System\bin\Debug\Hospital Management System.exe.config
+D:\12. getpridoc\Hospital Management System\Hospital Management System\bin\Debug\Hospital Management System.exe.config
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital Management System.exe
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital Management System.pdb
+D:\12. getpridoc\Hospital Management System\Hospital Management System\bin\Debug\Hospital Management System.exe
+D:\12. getpridoc\Hospital Management System\Hospital Management System\bin\Debug\Hospital Management System.pdb
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital Management System.csprojResolveAssemblyReference.cache
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Doctor2.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.BillForm.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Email.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Form3.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Main.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Nurse.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.frmPatient.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Login.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital_Management_System.Properties.Resources.resources
+D:\12. getpridoc\Hospital Management System\Hospital Management System\obj\x86\Debug\Hospital Management System.csproj.GenerateResource.Cache
